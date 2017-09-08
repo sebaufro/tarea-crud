@@ -7,7 +7,11 @@ if(!isset($_SESSION['usuario'])) {
 	die;
 }
 
-// IMPLEMENTAR BORRAR AQUÍ
+if(isset($_GET["id"]) ){
+	
+	$id =$_GET['id'];
+	$db->query("DELETE FROM noticias WHERE id_noticia=$id");
+}
 
-$_SESSION["error"] = "Función no implementada";
 header("Location: welcome.php");
+?>
