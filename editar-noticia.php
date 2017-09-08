@@ -16,21 +16,8 @@ if(isset($_SESSION['error'])) {
 $usuario = $_SESSION['usuario'];
 
 if(isset($_POST["titulo"]) && isset($_POST["texto"])){
-	if($usuario["rol"] != 1) {
-		header('Location: welcome.php');
-		die;
-	}
-
-  $titulo = $db->escape_string($_POST['titulo']);
-  $texto = $db->escape_string($_POST['texto']);
-  $result = $db->query("INSERT INTO noticias (titulo, texto) VALUES ('$titulo', '$texto')");
-  if(!$result) {
-    $_SESSION['error'] = $db->error;
-    header('Location: crear-noticia.php');
-  } else {
-    header('Location: welcome.php');
-  }
-
+  // IMPLEMENTAR EDITAR AQUÍ
+	echo "Función no implementada";
 	die;
 }
 
@@ -48,9 +35,9 @@ if(isset($_POST["titulo"]) && isset($_POST["texto"])){
     <div class="row justify-content-md-center mt-5">
       <div class="col-sm-8">
         <div class="card">
-          <h4 class="card-header">Agregar noticia</h4>
+          <h4 class="card-header">Editar noticia</h4>
           <div class="card-body">
-            <form action="crear-noticia.php" method="post">
+            <form method="post">
               <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" name="titulo" class="form-control" id="titulo">

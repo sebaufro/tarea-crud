@@ -9,6 +9,14 @@ if(!isset($_SESSION['usuario'])) {
 
 $usuario = $_SESSION["usuario"];
 $rolTitle = $usuario['rol'] == 1 ? "Administración" : "Usuario";
+
+
+$error = '';
+if(isset($_SESSION['error'])) {
+  $error = $_SESSION['error'];
+  unset($_SESSION['error']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,17 +27,32 @@ $rolTitle = $usuario['rol'] == 1 ? "Administración" : "Usuario";
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container-fluid">
-		<?php 
-			if ($usuario["rol"] == 1){
-				include "include/cont-admin.php";
-			} elseif ($usuario["rol"] == 2){
-				include "include/cont-usuario.php";
-			}
-		?>
-		<div class="col-xs-12 col-sm-2 col-sm-offset-5">
-			<a href="salir.php" class="btn btn-danger btn-block">Salir</a>
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col">
+				<?php 
+					if ($usuario["rol"] == 1){
+						include "include/cont-admin.php";
+					} elseif ($usuario["rol"] == 2){
+						include "include/cont-usuario.php";
+					}
+				?>
+			</div>	
 		</div>
+		<div class="row mt-3">
+			<div class="col">
+				<a href="salir.php" class="btn btn-danger">Cerrar sesión</a>
+			</div>
+		</div>
+        <?php if($error) { ?>
+		<div class="row mt-3">
+			<div class="col">
+		        <div class="alert alert-danger" role="alert">
+		          <b>Error</b>: <?php echo $error; ?>
+		        </div>
+			</div>
+		</div>
+        <?php } ?>
 	</div>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/script.min.js"></script>
