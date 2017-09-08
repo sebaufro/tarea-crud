@@ -3,8 +3,8 @@ include 'db.php';
 session_start();
 
 if(!isset($_SESSION['usuario'])) {
-	header('Location: ./');
-	die;
+  header('Location: ./');
+  die;
 }
 
 $usuario = $_SESSION["usuario"];
@@ -22,39 +22,37 @@ if(isset($_SESSION['error'])) {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>Bienvenido <?php echo $usuario["usuario"]; ?> | Panel de <?php echo $rolTitle ?></title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <title>Bienvenido <?php echo $usuario["usuario"]; ?> | Panel de <?php echo $rolTitle ?></title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container mt-3">
-		<div class="row">
-			<div class="col">
-				<?php 
-					if ($usuario["rol"] == 1){
-						include "include/cont-admin.php";
-					} elseif ($usuario["rol"] == 2){
-						include "include/cont-usuario.php";
-					}
-				?>
-			</div>	
-		</div>
-		<div class="row mt-3">
-			<div class="col">
-				<a href="salir.php" class="btn btn-danger">Cerrar sesión</a>
-			</div>
-		</div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
+        <?php 
+          if ($usuario["rol"] == 1){
+            include "include/cont-admin.php";
+          } elseif ($usuario["rol"] == 2){
+            include "include/cont-usuario.php";
+          }
+        ?>
+      </div>  
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <a href="salir.php" class="btn btn-danger">Cerrar sesión</a>
+      </div>
+    </div>
         <?php if($error) { ?>
-		<div class="row mt-3">
-			<div class="col">
-		        <div class="alert alert-danger" role="alert">
-		          <b>Error</b>: <?php echo $error; ?>
-		        </div>
-			</div>
-		</div>
+    <div class="row mt-3">
+      <div class="col">
+            <div class="alert alert-danger" role="alert">
+              <b>Error</b>: <?php echo $error; ?>
+            </div>
+      </div>
+    </div>
         <?php } ?>
-	</div>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/script.min.js"></script>
+  </div>
 </body>
 </html>

@@ -26,7 +26,7 @@ if(!isset($db)) {
                 <a class="btn btn-danger" href='borrar-noticia.php?id=<?php echo $noticia["id_noticia"]; ?>' disabled="disabled">Eliminar</a>
               </td>
             </tr>
-          <?php } ?>			 			
+          <?php } ?>
         </tbody>
       </table>
     </div>

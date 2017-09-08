@@ -3,8 +3,8 @@ include 'db.php';
 session_start();
 
 if(!isset($_SESSION['usuario'])) {
-	header('Location: ./');
-	die;
+  header('Location: ./');
+  die;
 }
 
 $error = '';
@@ -16,10 +16,10 @@ if(isset($_SESSION['error'])) {
 $usuario = $_SESSION['usuario'];
 
 if(isset($_POST["titulo"]) && isset($_POST["texto"])){
-	if($usuario["rol"] != 1) {
-		header('Location: welcome.php');
-		die;
-	}
+  if($usuario["rol"] != 1) {
+    header('Location: welcome.php');
+    die;
+  }
 
   $titulo = $db->escape_string($_POST['titulo']);
   $texto = $db->escape_string($_POST['texto']);
@@ -31,7 +31,7 @@ if(isset($_POST["titulo"]) && isset($_POST["texto"])){
     header('Location: welcome.php');
   }
 
-	die;
+  die;
 }
 
 ?>
@@ -39,12 +39,12 @@ if(isset($_POST["titulo"]) && isset($_POST["texto"])){
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>Agregar noticia</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <title>Agregar noticia</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container">
+  <div class="container">
     <div class="row justify-content-md-center mt-5">
       <div class="col-sm-8">
         <div class="card">

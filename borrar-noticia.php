@@ -7,5 +7,7 @@ if(!isset($_SESSION['usuario'])) {
 	die;
 }
 
+// IMPLEMENTAR BORRAR AQUÍ
+
 $_SESSION["error"] = "Función no implementada";
 header("Location: welcome.php");
