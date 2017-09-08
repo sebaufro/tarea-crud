@@ -6,6 +6,7 @@ En este repositorio tendrá un proyecto con una estructura clásica, en la cual 
 ### Base de datos
 * En su servidor de base de datos deberá crear una base de datos para esta tarea. 
 * En la carpeta `DB` existe un archivo llamado `tarea.sql`. Este archivo deberá cargarlo a la base de datos creada.
+* Copiar `db.example.php` como `db.php` en la misma carpeta
 * En el archivo `db.php` deberá agregar la configuración para conectarse a su base de datos.
 
 ### Proyecto
