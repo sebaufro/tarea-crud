@@ -20,7 +20,7 @@ if(empty($_POST["user"]) || empty($_POST["passwd"])){
 
 // Sanitizar usuario y hacer consulta
 $usuario = $db->escape_string($_POST["user"]);
-$resultado = $pdo->query("SELECT * FROM usuarios WHERE usuario = '$usuario' LIMIT 1");
+$resultado = $db->query("SELECT * FROM usuarios WHERE usuario = '$usuario' LIMIT 1");
 
 // Error en la consulta
 if(!$resultado) {
@@ -36,10 +36,10 @@ if ($resultado->num_rows == 0) {
 }
 
 // Cargar el primer resultado como arreglo con nombres
-$usuario = $result->fetch_assoc();
+$usuario = $resultado->fetch_assoc();
 
 // Validar contraseña
-if($usuario['passwd'] != $_POST['passwd']) {
+if($usuario['pass'] != $_POST['passwd']) {
 	redirigir('Contraseña incorrecta!');
 	die;
 }

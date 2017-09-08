@@ -25,8 +25,8 @@ if(isset($_SESSION['error'])) {
           <div class="card-body">
             <form action="validar.php" method="post">
               <div class="form-group">
-                <label for="usuario">Usuario</label>
-                <input type="text" name="usuario" class="form-control" id="usuario">
+                <label for="user">Usuario</label>
+                <input type="text" name="user" class="form-control" id="user">
               </div>
               <div class="form-group">
                 <label for="password">Contraseña</label>
